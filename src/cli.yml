@@ -1,0 +1,18 @@
+name: aoc-2021
+version: "1.0"
+author: Tyler Pickett <t.pickett66@gmailcom>
+about: Advent of Code 2021 solutions
+args:
+  - verbose:
+      short: v
+      multiple_occurrences: true
+      about: Sets the level of verbosity
+subcommands:
+  - day1:
+      about: Day 1 solutions
+      version: "1.0"
+      args:
+        - INPUT:
+            about: Sets the input file to use
+            required: true
+            index: 1
