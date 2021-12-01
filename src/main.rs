@@ -14,7 +14,8 @@ fn main() {
     match matches.subcommand() {
         Some(("day1", sub_m)) => {
             let input_file = sub_m.value_of("INPUT").unwrap();
-            match day1::run(verbosity, input_file) {
+            let window_size = sub_m.value_of("window").unwrap().parse::<u64>().unwrap();
+            match day1::run(verbosity, input_file, window_size) {
                 Ok(_) => {},
                 Err(err) => { panic!("{}", err) }
             };
