@@ -2,11 +2,10 @@ use std::collections::VecDeque;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error, Read};
 
-pub fn run(_verbosity: u64, input_path: &str, window_size: u64) -> Result<(), Error> {
+pub fn run(input_path: &str, window_size: u64, _verbosity: u64) -> Result<(), Error> {
     let file = File::open(input_path)?;
     let reader = BufReader::new(file);
 
-    // reader.lines()
     let increase_count = count_increases(reader, window_size as usize);
 
     println!("Number of times increased: {}", increase_count);
