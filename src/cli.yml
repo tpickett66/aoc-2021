@@ -24,3 +24,6 @@ subcommands:
   - day2:
       about: Day 2 solution
       version: "2.0"
+  - day3:
+      about: Day 3 solution
+      version: "3.0"

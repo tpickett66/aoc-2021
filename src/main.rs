@@ -12,7 +12,7 @@ fn main() {
     let yaml = load_yaml!("cli.yml");
     let matches = App::from(yaml).get_matches();
 
-    let verbosity = matches.occurrences_of("v");
+    let verbosity = matches.occurrences_of("verbose");
     let input_file = matches.value_of("INPUT").unwrap();
 
     match matches.subcommand() {
