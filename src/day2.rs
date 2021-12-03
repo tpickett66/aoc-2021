@@ -4,10 +4,7 @@ use crate::util::Result;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Read};
 
-pub fn run(input_path: &str, verbosity: u64) -> Result<()> {
-    let file = File::open(input_path)?;
-    let reader = BufReader::new(file);
-
+pub fn run(reader: BufReader<File>, verbosity: u64) -> Result<()> {
     let position = calculate_position(reader, verbosity)?;
 
     let combined_position = position.depth * position.horizontal;

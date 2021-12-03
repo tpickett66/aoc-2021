@@ -4,9 +4,8 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, Read};
 
 
-pub fn run(input_path: &str, verbosity: u64) -> util::Result<()> {
-    let file = File::open(input_path)?;
-    let reader = BufReader::new(file);
+pub fn run(reader: BufReader<File>, verbosity: u64) -> util::Result<()> {
+    let reader = reader;
 
     let (gamma, bits) = calculate_gamma(reader, verbosity).unwrap();
     let epsilon = calculate_epsilon(gamma, bits);
