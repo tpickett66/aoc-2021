@@ -1,6 +1,7 @@
 mod day1;
 mod day2;
 mod util;
+mod day3;
 
 #[macro_use]
 extern crate clap;
@@ -24,6 +25,12 @@ fn main() {
         }
         Some(("day2", _sub_m)) => {
             match day2::run(input_file, verbosity) {
+                Ok(_) => {},
+                Err(err) => { panic!("{}", err) }
+            };
+        }
+        Some(("day3", _sub_m)) => {
+            match day3::run(input_file, verbosity) {
                 Ok(_) => {},
                 Err(err) => { panic!("{}", err) }
             };
