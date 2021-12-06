@@ -2,6 +2,7 @@ mod util;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
 
 #[macro_use]
 extern crate clap;
@@ -18,7 +19,7 @@ fn main() {
     let verbosity = matches.occurrences_of("verbose");
     let input_path = matches.value_of("INPUT").unwrap();
 
-    let file = File::open(input_path)?;
+    let file = File::open(input_path).unwrap();
     let reader = BufReader::new(file);
 
     match matches.subcommand() {
@@ -40,6 +41,12 @@ fn main() {
                 Ok(_) => {},
                 Err(err) => { panic!("{}", err) }
             };
+        }
+        Some(("day4", _sub_m)) => {
+            match day4::run(reader, verbosity) {
+                Ok(b) => { println!("Winning Board:\n{}", b) }
+                Err(e) => { panic!("{}", e) }
+            }
         }
         _ => { /* IDK something? */ }
     }
