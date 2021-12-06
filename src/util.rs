@@ -2,6 +2,7 @@ use std::io;
 use std::result;
 use std::fmt;
 use std::fmt::Formatter;
+use std::num::ParseIntError;
 
 #[derive(Debug)]
 pub struct Error {
@@ -9,8 +10,7 @@ pub struct Error {
 }
 
 impl Error {
-    #[allow(unused)]
-    pub fn new(msg: &str) -> Error {
+    pub fn new<T: ToString>(msg: T) -> Error {
         Error{details: msg.to_string()}
     }
 }
@@ -23,7 +23,14 @@ impl fmt::Display for Error {
 
 impl From<io::Error> for Error {
     fn from(io_err: io::Error) -> Self {
-        Error{ details: io_err.to_string() }
+        Self::new(io_err)
+    }
+}
+
+impl From<std::num::ParseIntError> for Error {
+    // mmmm pie
+    fn from(pie: ParseIntError) -> Self {
+        Self::new(pie)
     }
 }
 
