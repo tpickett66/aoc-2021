@@ -18,7 +18,7 @@ fn main() {
     let verbosity = matches.occurrences_of("verbose");
     let input_path = matches.value_of("INPUT").unwrap();
 
-    let file = File::open(input_path)?;
+    let file = File::open(input_path).unwrap();
     let reader = BufReader::new(file);
 
     match matches.subcommand() {
@@ -37,7 +37,7 @@ fn main() {
         }
         Some(("day3", _sub_m)) => {
             match day3::run(reader, verbosity) {
-                Ok(_) => {},
+                Ok(analysis) => { println!("{}", analysis) },
                 Err(err) => { panic!("{}", err) }
             };
         }
