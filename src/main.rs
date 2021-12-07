@@ -3,6 +3,7 @@ mod day1;
 mod day2;
 mod day3;
 mod day4;
+mod day5;
 
 #[macro_use]
 extern crate clap;
@@ -45,6 +46,12 @@ fn main() {
         Some(("day4", _sub_m)) => {
             match day4::run(reader, verbosity) {
                 Ok(b) => { println!("Winning Board:\n{}", b) }
+                Err(e) => { panic!("{}", e) }
+            }
+        }
+        Some(("day5", _sub_m)) => {
+            match day5::run(reader, verbosity) {
+                Ok(_) => { println!("ok") }
                 Err(e) => { panic!("{}", e) }
             }
         }

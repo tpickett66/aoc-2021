@@ -30,3 +30,6 @@ subcommands:
   - day4:
       about: Day 4 solution
       version: "4.0"
+  - day5:
+      about: Day 5 solution
+      version: "5.0"
